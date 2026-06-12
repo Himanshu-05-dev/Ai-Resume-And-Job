@@ -69,7 +69,7 @@ async function loginUserController(req,res){
     const isPasswordValid = await bcrypt.compare(password,user.password)
 
     if(!isPasswordValid){
-        return res.staus(400).json({
+        return res.status(400).json({
             message:"Invalid email or password"
         })
     }
@@ -111,10 +111,10 @@ async function getMeController(req,res){
 
     res.status(200).json({
         message: "User details fetched successfully",
-        details :{id:user._id,
+        user :{id:user._id,
         username: user.username,
         email: user.email}
     })
 }
 
-module.exports = {registerUserController, loginUserController, logoutUserController, getMeController};
+module.exports = {registerUserController, loginUserController, logoutUserController,getMeController};
